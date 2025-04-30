@@ -1,18 +1,20 @@
 import streamlit as st
-import webbrowser
 
 # Set page configuration
 st.set_page_config(page_title="Firebox - Movie Platform", layout="wide")
 st.title("🔥 Firebox Movie Platform")
-st.markdown("### Choose a category from the sidebar to watch full videos!")
+st.markdown("### Choose a category from the sidebar to watch full movies or videos available on YouTube!")
 
 # Sidebar selection
 category = st.sidebar.selectbox(
-    "Select a Category",
-    ["Bollywood", "Hollywood", "Horror", "Sci-Fi", "Thriller", "Relaxing Videos", "Vlogs", "Normal Movies"]
+    "🎬 Select a Category",
+    [
+        "Bollywood", "Hollywood", "Horror", "Sci-Fi", "Thriller",
+        "Relaxing Videos", "Vlogs", "Normal Movies"
+    ]
 )
 
-# Define full YouTube videos (no trailers)
+# Define movie/video data with direct YouTube links
 movie_data = {
     "Bollywood": [
         {
@@ -62,7 +64,7 @@ movie_data = {
         },
         {
             "title": "Mahakatha - Hanuman Mantra",
-            "thumbnail": "https://www.youtube.com/watch?v=zFHXTSjA2hM",
+            "thumbnail": "https://img.youtube.com/vi/zFHXTSjA2hM/hqdefault.jpg",
             "full_movie_url": "https://www.youtube.com/watch?v=zFHXTSjA2hM"
         }
     ],
@@ -82,13 +84,13 @@ movie_data = {
     ]
 }
 
-# Display selected category
+# Get movies for selected category
 selected_movies = movie_data.get(category, [])
 
+# Display movies in 3-column layout
 cols = st.columns(3)
 for idx, movie in enumerate(selected_movies):
     with cols[idx % 3]:
         st.image(movie["thumbnail"], use_container_width=True)
         st.markdown(f"**{movie['title']}**")
-        if st.button("▶️ Watch Now", key=f"play_{movie['title']}"):
-            webbrowser.open_new_tab(movie["full_movie_url"])
+        st.link_button("▶️ Watch Now", url=movie["full_movie_url"])
