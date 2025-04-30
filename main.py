@@ -3,18 +3,15 @@ import streamlit as st
 # Set page configuration
 st.set_page_config(page_title="Firebox - Movie Platform", layout="wide")
 st.title("🔥 Firebox Movie Platform")
-st.markdown("### Choose a category from the sidebar to watch full movies or videos available on YouTube!")
+st.markdown("### Choose a category from the sidebar to watch full videos!")
 
 # Sidebar selection
 category = st.sidebar.selectbox(
-    "🎬 Select a Category",
-    [
-        "Bollywood", "Hollywood", "Horror", "Sci-Fi", "Thriller",
-        "Relaxing Videos", "Vlogs", "Normal Movies"
-    ]
+    "Select a Category",
+    ["Bollywood", "Hollywood", "Horror", "Sci-Fi", "Thriller", "Relaxing Videos", "Vlogs", "Normal Movies"]
 )
 
-# Define movie/video data with direct YouTube links
+# Define full movies with direct URLs (YouTube or Dailymotion)
 movie_data = {
     "Bollywood": [
         {
@@ -40,6 +37,16 @@ movie_data = {
             "title": "Haunted Factory | Hindi Horror Movie",
             "thumbnail": "https://img.youtube.com/vi/jQZbNkYUSKM/hqdefault.jpg",
             "full_movie_url": "https://www.youtube.com/watch?v=jQZbNkYUSKM"
+        },
+        {
+            "title": "The Conjuring 3: The Devil Made Me Do It (Full Movie)",
+            "thumbnail": "https://i.ytimg.com/vi/2O9K2lFnA7w/hqdefault.jpg",  # Placeholder image
+            "full_movie_url": "https://www.dailymotion.com/video/x9e43kc"
+        },
+        {
+            "title": "Veronica (2017) - Full Movie",
+            "thumbnail": "https://i.ytimg.com/vi/QphzH2xF2vI/hqdefault.jpg",  # Placeholder image
+            "full_movie_url": "https://www.dailymotion.com/video/x8skij8"
         }
     ],
     "Sci-Fi": [
@@ -84,11 +91,10 @@ movie_data = {
     ]
 }
 
-# Get movies for selected category
+# Display movies based on selected category
 selected_movies = movie_data.get(category, [])
-
-# Display movies in 3-column layout
 cols = st.columns(3)
+
 for idx, movie in enumerate(selected_movies):
     with cols[idx % 3]:
         st.image(movie["thumbnail"], use_container_width=True)
