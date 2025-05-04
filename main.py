@@ -94,4 +94,6 @@ for idx, movie in enumerate(selected_movies):
     with cols[idx % 3]:
         st.image(movie["thumbnail"], use_container_width=True)
         st.markdown(f"**{movie['title']}**")
-        st.link_button("▶️ Watch Now", url=movie["full_movie_url"])
+        
+        # Add the video to be played in the website
+        st.video(movie["full_movie_url"])  # This will embed the video directly
