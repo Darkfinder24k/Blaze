@@ -1,4 +1,4 @@
- import streamlit as st
+import streamlit as st
 
 # Set page configuration
 st.set_page_config(page_title="Firebox - Movie Platform", layout="wide")
@@ -33,6 +33,11 @@ movie_data = {
         }
     ],
     "Horror": [
+        {
+            "title": "Haunted Factory | Hindi Horror Movie",
+            "thumbnail": "https://img.youtube.com/vi/jQZbNkYUSKM/hqdefault.jpg",
+            "full_movie_url": "https://www.youtube.com/watch?v=jQZbNkYUSKM"
+        },
         {
             "title": "The Conjuring 3: The Devil Made Me Do It (Full Movie)",
             "thumbnail": "https://i.ytimg.com/vi/2O9K2lFnA7w/hqdefault.jpg",  # Placeholder image
