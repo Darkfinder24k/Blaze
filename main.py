@@ -46,7 +46,7 @@ movie_data = {
         {
             "title": "Veronica (2017) - Full Movie",
             "thumbnail": "https://i.ytimg.com/vi/QphzH2xF2vI/hqdefault.jpg",  # Placeholder image
-            "full_movie_url": "https://www.dailymotion.com/video/x8skij8"
+            "full_movie_url": "https://geo.dailymotion.com/player.html?video=x8skij8"
         }
     ],
     "Sci-Fi": [
